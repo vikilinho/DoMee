@@ -1,11 +1,26 @@
+import 'package:Domee/widgets/task_list.dart';
+
 import 'package:flutter/material.dart';
 
 class TodoPage extends StatefulWidget {
+  
   @override
   _TodoPageState createState() => _TodoPageState();
 }
 
 class _TodoPageState extends State<TodoPage> {
+  Widget buildBottomSheet(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10) ),
+        color: Colors.white),
+      child: Center(
+        child: TextField(
+          decoration: InputDecoration()
+        ),
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +31,9 @@ class _TodoPageState extends State<TodoPage> {
           Icons.add,
           color: Colors.white,
         ),
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(context: context, builder:  buildBottomSheet);
+        },
       ),
       body: Column(
         children: [
@@ -36,7 +53,7 @@ class _TodoPageState extends State<TodoPage> {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  "You got 12 tasks to strike through! Move It!",
+                  " 12 tasks to strike through! Move It!",
                   style: TextStyle(fontSize: 25),
                 ),
               ],
@@ -53,25 +70,11 @@ class _TodoPageState extends State<TodoPage> {
                       topRight: Radius.circular(20)),
                   color: Colors.white,
                 ),
-                child: ListView(
-                  children: [
-                    ListTile(
-                      title: Text(
-                        "Fix a sturborn bug",
-                        style: TextStyle(color: Colors.purple),
-                      ),
-                      trailing: Checkbox(value: true,
-                      onChanged: ( txt){
-                        print("do nothing ");
-                      },
-                      activeColor: Colors.purple,
-                      ),
-                    )
-                  ],
-                )),
+                child: TaskList()),
           ),
         ],
       ),
     );
   }
 }
+
