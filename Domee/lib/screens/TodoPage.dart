@@ -1,3 +1,4 @@
+import 'package:Domee/screens/addTask.dart';
 import 'package:Domee/widgets/task_list.dart';
 
 import 'package:flutter/material.dart';
@@ -9,18 +10,7 @@ class TodoPage extends StatefulWidget {
 }
 
 class _TodoPageState extends State<TodoPage> {
-  Widget buildBottomSheet(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10) ),
-        color: Colors.white),
-      child: Center(
-        child: TextField(
-          decoration: InputDecoration()
-        ),
-      ),
-    );
-  }
+  Widget buildBottomSheet(BuildContext context) => AddTask();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
