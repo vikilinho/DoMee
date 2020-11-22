@@ -15,20 +15,23 @@ class AddTask extends StatelessWidget {
             style: TextStyle(color: Colors.purple, fontSize: 25, fontWeight: FontWeight.w700),
           ),
           SizedBox(height: 10,), 
-          TextField(
-            autofocus: true,
-            decoration: InputDecoration(
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              alignLabelWithHint: true,
-              labelText: "Task",
-              labelStyle: TextStyle(color: Colors.purple, fontSize: 25),
-              hintText: "Enter your task for today", hintStyle: TextStyle(color: Colors.black45),
-              fillColor: Colors.purple,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              autofocus: true,
+              decoration: InputDecoration(
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                alignLabelWithHint: true,
+                labelText: "Task",
+                labelStyle: TextStyle(color: Colors.purple, fontSize: 25),
+                hintText: "Enter your task for today", hintStyle: TextStyle(color: Colors.black45),
+                fillColor: Colors.purple,
+              ),
             ),
           ),
           ButtonTheme(
           buttonColor: Colors.purple,
-          child: TextButton(onPressed: null, child: Text("Enter")))
+          child: RaisedButton(onPressed: (){}, child: Text("Enter"))),
         ],
       ),
     );
